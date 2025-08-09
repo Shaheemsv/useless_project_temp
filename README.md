@@ -1,96 +1,141 @@
 <img width="3188" height="1202" alt="frame (3)" src="https://github.com/user-attachments/assets/517ad8e9-ad22-457d-9538-a9e62d137cd7" />
 
 
-# [Project Name] 🎯
+# Mooku_lipi (the nose script) 🎯
 
 
 ## Basic Details
-### Team Name: [Name]
+### Team Name: TechLet
 
 
 ### Team Members
-- Team Lead: [Name] - [College]
-- Member 2: [Name] - [College]
-- Member 3: [Name] - [College]
+- Team Lead: Shaheem
+- Member 2: Sajin
+
 
 ### Project Description
-[2-3 lines about what your project does]
+Mooku_Lipi is an interactive, real-time Malayalam handwriting learning and evaluation tool that lets users draw Malayalam letters using nose tracking via webcam. By leveraging MediaPipe’s face mesh technology, the app tracks the user’s nose movements to allow drawing on the screen without touching any device.
+
+The project uses advanced image processing and AI-powered analysis (via Gemini API) to compare the user’s drawing with reference letters, providing instant feedback on accuracy, along with funny and encouraging Malayalam comments. This engaging approach helps users, especially children, improve their Malayalam handwriting skills in a fun, gamified way with particle effects and friendly UI prompts.
+
+Ideal for language learners, educators, and enthusiasts, Mooku_Lipi blends computer vision, AI, and cultural language preservation into a novel educational experience.
 
 ### The Problem (that doesn't exist)
-[What ridiculous problem are you solving?]
+Who knew learning Malayalam handwriting could be so boring? Holding a pen and paper is so last century, and no one wants to squint over textbooks or practice sheets—especially kids! Plus, nobody has time to get a handwriting coach who can laugh at your mistakes with you.
 
 ### The Solution (that nobody asked for)
-[How are you solving it? Keep it fun!]
+Introducing Mooku_Lipi — the world’s first Malayalam handwriting app you control with your nose! That’s right, just wave your nose in front of your webcam, and start drawing letters in the air. Our AI-powered magic compares your nose-art with perfect letters, gives you hilarious Malayalam comments to keep you smiling, and sprinkles cool particle explosions for every stroke. Learning Malayalam writing just got a whole lot sillier... and way more fun!
 
 ## Technical Details
+
 ### Technologies/Components Used
-For Software:
-- [Languages used]
-- [Frameworks used]
-- [Libraries used]
-- [Tools used]
 
-For Hardware:
-- [List main components]
-- [List specifications]
-- [List tools required]
+#### For Software:
+- **Languages used:** Python
+- **Frameworks used:** None (uses OpenCV, Pygame, MediaPipe libraries)
+- **Libraries used:**  
+  - OpenCV  
+  - MediaPipe  
+  - Pygame  
+  - Pillow (PIL)  
+  - Requests  
+  - Scikit-image (for SSIM)  
+- **Tools used:**  
+  - Python interpreter  
+  - Git for version control  
+  - Gemini API for handwriting analysis
 
-### Implementation
-For Software:
-# Installation
-[commands]
 
-# Run
-[commands]
 
-### Project Documentation
-For Software:
 
-# Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
+## Project Documentation
 
-# Diagrams
-![Workflow](Add your workflow/architecture diagram here)
-*Add caption explaining your workflow*
+### For Software
 
-For Hardware:
+**1. Overview**  
+**Mooku_Lipi** is a computer vision–based Malayalam handwriting learning tool that uses nose tracking to draw letters in the air. The system captures webcam input, tracks the user's nose tip, renders drawing strokes, and compares them against reference Malayalam letters using AI-powered evaluation and offline similarity metrics.
 
-# Schematic & Circuit
-![Circuit](Add your circuit diagram here)
-*Add caption explaining connections*
+---
 
-![Schematic](Add your schematic diagram here)
-*Add caption explaining the schematic*
+**2. Architecture**
 
-# Build Photos
-![Components](Add photo of your components here)
-*List out all components shown*
+**Core Components:**  
+1. **Webcam Input** – Captures real-time video feed using OpenCV.  
+2. **Face Mesh Tracking** – Uses MediaPipe to identify and track the nose tip position.  
+3. **Drawing Engine** – Renders virtual strokes with particle effects using Pygame.  
+4. **Letter Display Module** – Displays randomly selected Malayalam letters to be drawn.  
+5. **Evaluation Module** –  
+   - **Primary:** Google Gemini API for AI accuracy scoring  
+   - **Fallback:** SSIM-based image similarity for offline evaluation  
+6. **Audio Feedback System** – Uses gTTS to speak instructions and results in Malayalam.  
+7. **Font Rendering** – Loads Malayalam Unicode fonts with PIL for cross-platform display.
 
-![Build](Add photos of build process here)
-*Explain the build steps*
+---
 
-![Final](Add photo of final product here)
-*Explain the final build*
+**3. Workflow**
 
-### Project Demo
-# Video
-[Add your demo video link here]
-*Explain what the video demonstrates*
+1. **Startup:**  
+   - Initialize webcam, load fonts, prepare letter set, and display instructions.
 
-# Additional Demos
-[Add any extra demo materials/links]
+2. **Gameplay Loop:**  
+   - Show a random Malayalam letter.  
+   - Track nose position and draw strokes on the canvas.  
+   - Apply particle effects for visual feedback.
 
-## Team Contributions
-- [Name 1]: [Specific contributions]
-- [Name 2]: [Specific contributions]
-- [Name 3]: [Specific contributions]
+3. **Evaluation:**  
+   - When the user indicates completion, the drawn image is compared with the reference.  
+   - If Gemini API is available, send the images for AI scoring.  
+   - If Gemini fails or no internet, fall back to SSIM similarity calculation.
+
+4. **Feedback:**  
+   - Display the score visually.  
+   - Speak the feedback in Malayalam via gTTS.
+
+5. **Repeat:**  
+   - Move to the next letter until the session ends.
+
+---
+
+**4. File Structure**
+Mooku_Lipi/
+│
+├── mooku_lipi.py # Main application code\n
+├── fonts/ # Malayalam font files
+├── assets/ # Images or additional resources
+├── requirements.txt # Dependencies
+├── README.md # Project description and usage
+
+**5. Dependencies**
+
+- Python 3.7+  
+- OpenCV  
+- MediaPipe  
+- Pillow (PIL)  
+- NumPy  
+- scikit-image  
+- gTTS  
+- Requests  
+- Pygame  
+
+---
+
+## 6. Setup Instructions
+
+```bash
+git clone https://github.com/<yourusername>/Mooku_Lipi.git
+cd Mooku_Lipi
+pip install -r requirements.txt
+python mooku_lipi.py
+```
+
+
+
+
+
+
+
 
 ---
 Made with ❤️ at TinkerHub Useless Projects 
